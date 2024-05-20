@@ -7,7 +7,7 @@ varying float vElevation;
 varying vec3 vNormal;
 varying vec3 vPosition;
 
-#include ../includes/directionalLight.glsl;
+#include ../includes/pointLight.glsl;
 
 void main()
 {
@@ -15,13 +15,15 @@ void main()
     vec3 viewDirection = normalize(vPosition - cameraPosition);
 
     vec3 light = vec3(0.0);
-    light += directionalLight(
-        vec3(1.0), // Color
-        1.0, // Intensity
-        normal, 
-        vec3(-1.0, 0.5, 0.0), // Position
+    light += pointLight(
+        vec3(1.0),              // Color
+        10.0,                   // Intensity
+        normal,         
+        vec3(0.0, 0.25, 0.0),  // Light position
         viewDirection, 
-        30.0 // Specular pow
+        30.0,                   // Specular pow
+        vPosition,
+        0.95                    // Decay
     );
 
     float mixStrength = smoothstep(0.0, 1.0, (vElevation + uColorOffset) * uColorMultiplier);
