@@ -7,8 +7,8 @@ import waterFragmentShader from './shaders/water/fragment.glsl'
 // Debug
 const gui = new GUI({ width: 340 })
 const debugObject = {}
-debugObject.depthColor = '#186691'
-debugObject.surfaceColor = '#9bd8ff'
+debugObject.depthColor = '#ff4000'
+debugObject.surfaceColor = '#151c37'
 
 const canvas = document.querySelector('canvas.webgl')
 const scene = new THREE.Scene()
@@ -32,8 +32,8 @@ const waterMaterial = new THREE.ShaderMaterial({
 
         uDepthColor: { value: new THREE.Color(debugObject.depthColor) },
         uSurfaceColor: { value: new THREE.Color(debugObject.surfaceColor) },
-        uColorOffset: { value: 0.08 },
-        uColorMultiplier: { value: 5 }
+        uColorOffset: { value: 0.925 },
+        uColorMultiplier: { value: 1 }
     }
 })
 
