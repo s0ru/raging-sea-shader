@@ -35,7 +35,8 @@ const waterMaterial = new THREE.ShaderMaterial({
         uSurfaceColor: { value: new THREE.Color(debugObject.surfaceColor) },
         uColorOffset: { value: 0.925 },
         uColorMultiplier: { value: 1 }
-    }
+    },
+    side: THREE.DoubleSide
 })
 
 const water = new THREE.Mesh(waterGeometry, waterMaterial)
