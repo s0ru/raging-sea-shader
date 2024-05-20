@@ -14,6 +14,7 @@ const canvas = document.querySelector('canvas.webgl')
 const scene = new THREE.Scene()
 
 const waterGeometry = new THREE.PlaneGeometry(2, 2, 512, 512)
+waterGeometry.deleteAttribute('normal')
 const waterMaterial = new THREE.ShaderMaterial({
     vertexShader: waterVertexShader,
     fragmentShader: waterFragmentShader,
